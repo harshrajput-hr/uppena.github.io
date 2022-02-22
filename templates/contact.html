@@ -1,0 +1,190 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Contact {%endblock title %} {%block body %}
+
+<div class="container-fluid px-0">
+  <div
+    id="carouselExampleCaptions"
+    class="carousel slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img
+          src="https://source.unsplash.com/1600x660/?contact,mobile,phone"
+          class="d-block w-100"
+          alt="UPPENA-images"
+        />
+        <div class="carousel-caption d-none d-md-block">
+          <h1 class="text-center">CONTACT US</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ 
+<section>
+  <div class="container row mb-5 mx-5 text-justify px-4">
+    <form class="row g-3 needs-validation" method="post" action="/contact">
+      {% csrf_token %}
+      <div class="col-md-4 position-relative">
+        <label for="FirstName" class="form-label">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="FirstName"
+          name="FirstName"
+          placeholder="Enter Your First Name"
+          required
+        />
+        <div class="valid-tooltip">Looks good!</div>
+      </div>
+      <div class="col-md-4 position-relative">
+        <label for="LastName" class="form-label">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="LastName"
+          name="LastName"
+          placeholder="Enter Your Last Name"
+          required
+        />
+        <div class="valid-tooltip">Looks good!</div>
+      </div>
+      <div class="col-md-4 position-relative">
+        <label for="email" class="form-label">Email ID</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-envelope-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"
+              /></svg
+          ></span>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter Your Email"
+            required
+          />
+          <div class="invalid-tooltip">
+            Please choose a unique and valid email id.
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 position-relative">
+        <label for="phone" class="form-label">Mobile Number</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-phone-vibrate-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M4 4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4zm5 7a1 1 0 1 0-2 0 1 1 0 0 0 2 0zM1.807 4.734a.5.5 0 1 0-.884-.468A7.967 7.967 0 0 0 0 8c0 1.347.334 2.618.923 3.734a.5.5 0 1 0 .884-.468A6.967 6.967 0 0 1 1 8c0-1.18.292-2.292.807-3.266zm13.27-.468a.5.5 0 0 0-.884.468C14.708 5.708 15 6.819 15 8c0 1.18-.292 2.292-.807 3.266a.5.5 0 0 0 .884.468A7.967 7.967 0 0 0 16 8a7.967 7.967 0 0 0-.923-3.734zM3.34 6.182a.5.5 0 1 0-.93-.364A5.986 5.986 0 0 0 2 8c0 .769.145 1.505.41 2.182a.5.5 0 1 0 .93-.364A4.986 4.986 0 0 1 3 8c0-.642.12-1.255.34-1.818zm10.25-.364a.5.5 0 0 0-.93.364c.22.563.34 1.176.34 1.818 0 .642-.12 1.255-.34 1.818a.5.5 0 0 0 .93.364C13.856 9.505 14 8.769 14 8c0-.769-.145-1.505-.41-2.182z"
+              /></svg
+          ></span>
+          <input
+            type="number"
+            class="form-control"
+            id="phone"
+            name="phone"
+            placeholder="Enter Your Mobile Number"
+            required
+          />
+        </div>
+
+        <div class="invalid-tooltip">Please provide a valid Mobile Number.</div>
+      </div>
+      <div class="col-md-3 position-relative">
+        <label for="gender" class="form-label">Gender</label>
+        <select class="form-select" id="gender" name="gender" required>
+          <option selected disabled value="">Choose...</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+        <div class="invalid-tooltip">Please select a gender.</div>
+      </div>
+      <div class="col-md-3 position-relative">
+        <label for="city" class="form-label">City</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-geo-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"
+              />
+            </svg>
+          </span>
+
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            name="city"
+            placeholder="Enter Your City"
+            required
+          />
+        </div>
+
+        <div class="invalid-tooltip">Please provide a valid city.</div>
+      </div>
+      <div class="mb-3">
+        <label for="desc" class="form-label">Message</label>
+        <div class="input-group has-validation">
+          <span class="input-group-text">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="35"
+              height="35"
+              fill="currentColor"
+              class="bi bi-card-text"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"
+              />
+              <path
+                d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"
+              />
+            </svg>
+          </span>
+          <textarea
+            class="form-control"
+            id="desc"
+            name="desc"
+            placeholder="Tell me about what you want to contact me for..."
+            required
+          ></textarea>
+        </div>
+
+        <div class="invalid-feedback">
+          Please enter a message in the textarea.
+        </div>
+      </div>
+      <div class="col-12 text-center">
+        <button class="btn btn-warning" id="myBtn" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</section>
+{% endblock body %}
